@@ -6,8 +6,7 @@
     flycheck
     robe
     ruby-test-mode
-    ruby-tools
-    yaml-mode))
+    ruby-tools))
 
 (when ruby-version-manager
   (add-to-list 'ruby-min-packages ruby-version-manager))
@@ -151,15 +150,6 @@
       (evil-leader/set-key-for-mode 'enh-ruby-mode "msr" 'ruby-send-region)
       (evil-leader/set-key-for-mode 'enh-ruby-mode "msR" 'ruby-send-region-and-go)
       (evil-leader/set-key-for-mode 'enh-ruby-mode "mss" 'ruby-switch-to-inf))))
-
-(defun ruby-min/init-yaml-mode ()
-  "Initialize YAML mode"
-  (use-package yaml-mode
-    :mode (("\\.\\(yml\\|yaml\\)\\'" . yaml-mode)
-           ("Procfile\\'" . yaml-mode))
-    :config (add-hook 'yaml-mode-hook
-                      '(lambda ()
-                         (define-key yaml-mode-map "\C-m" 'newline-and-indent)))))
 
 (defun ruby-min/init-feature-mode ()
   "Initialize Cucumber feature mode"
